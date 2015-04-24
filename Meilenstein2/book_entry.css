@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+
+
+body  { background-color: rgb(153, 217, 234); font-family: arial-black }
+h1 {text-align: center; text-size: 22px; color: rgb(63, 72, 204)}
+
+.dataRight {position: absolute; right: 10%; width: 35%}
+.dataLeft {position: absolute; left: 10%; width: 35%}
+
+p {font-size: 16px; font-weight: bold; text-align: left; color: rgb(63, 72, 204)}
+.right {right: 10px; position: absolute}
+.left {left: 200px; position: absolute; width: 200px;}
+.left2 {left: 300px; position: absolute; width: 200px}
+#button {background-color: rgb(0, 162, 232); border-color: rgb(63, 72, 204); 
+        border-width: 2px; font-size:14px; color: rgb(63, 72, 204); font-family: arial-black;
+        width:350px}

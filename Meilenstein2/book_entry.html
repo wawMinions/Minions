@@ -3,16 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Book Entry</title>
-<style type="text/css">
-
-body  { background-color: rgb(153, 217, 234); font-family: arial-black }
-h1 {text-align: center; text-size: 22px; color: rgb(63, 72, 204)}
-
-p {font-size: 16px; font-weight: bold; text-align: left; color: rgb(63, 72, 204)}
-.right {right: 5px; position:absolute}
-.left {left: 200px; position: absolute; width: 200px}
-.left2 {left: 300px; position: absolute; width: 200px}
-</style>
+￼<link rel="stylesheet" type="text/css" href="book_entry.css"/>
 </head>
 <body>
 
@@ -22,7 +13,7 @@ p {font-size: 16px; font-weight: bold; text-align: left; color: rgb(63, 72, 204)
     Buch anlegen
     </h1>
 
-    <div style= "position: absolute; right: 10%; width: 35%">
+    <div class="dataRight">
 	<p>
 		Ihr Vorname <input class="right" type="text" name="vorname" size="30" maxlength="40"/>
 	</p>
@@ -39,7 +30,7 @@ p {font-size: 16px; font-weight: bold; text-align: left; color: rgb(63, 72, 204)
 
     </div>
     
-    <div style= "position: absolute; left: 10%; width: 35%">
+    <div class="dataLeft">
 	<p>
 		Buchtitel <input class="left" type="text" name="titel" size="30"
 			maxlength="40" />
@@ -79,25 +70,23 @@ p {font-size: 16px; font-weight: bold; text-align: left; color: rgb(63, 72, 204)
 
    <p>
      Genre      
-     <div class= "left" style="font-size: 14px; color: black">
+     <a class= "left" style="font-size: 14px; color: black">
      <input type="checkbox" checked="checked" name="genre"/> Horror <br>
      <input type="checkbox" name="genre" /> Psycho <br>
      <input type="checkbox" name="genre"/> Krimi
-     </div>
+     </a>
         
-     <div class= "left2" style="font-size: 14px; color: black">
+     <a class= "left2" style="font-size: 14px; color: black">
         <input type="checkbox" name="genre" /> Doku <br>
         <input type="checkbox" name="genre"/> Komödie  <br>
         <input type="checkbox" name="genre"/> Romanze 
-     </div>    
+     </a>    
     </p>
 
  </div>
  
     <div style=" position: absolute; left: 35%; top: 80%"> 
-        <input style="background-color: rgb(0, 162, 232); border-color: rgb(63, 72, 204); 
-        border-width: 2px; font-size:14px; color: rgb(63, 72, 204); font-family: arial-black;
-        width:350px" 
+        <input id="button" 
          type="submit" name="absenden" value="Absenden"/>
     </div>
 
