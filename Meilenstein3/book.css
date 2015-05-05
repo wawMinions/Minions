@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+*{text-decoration: none}
+body  { background-color: rgb(153, 217, 234); font-family: arial;}
+h1 {text-align: center; text-size: 22px; color: rgb(63, 72, 204)}
+#horror {position: absolute; left: 10%}
+#roman {position: absolute; right: 10%}
+input[type=submit] {font-size:18px; font-family: arial; background-color: rgb(0, 162, 232);
+border-style: solid; border-color: rgb(63, 72, 204); border-width:5px; width: 40%}
+table{position: absolute; top: 30%; left: 15%; width: 70%;  border-collapse: collapse}
+th, td{border-color: rgb(63, 72, 204); border-style: solid; border-width:5px}
+
+

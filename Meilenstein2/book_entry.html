@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <title>Book Entry</title>
 ￼<link rel="stylesheet" type="text/css" href="book_entry.css"/>
+<script type="text/javascript" src="forms.js"> </script>
+￼
 </head>
 <body>
 
@@ -15,17 +17,17 @@
 
     <div class="dataRight">
 	<p>
-		Ihr Vorname <input class="right" type="text" name="vorname" size="30" maxlength="40"/>
+		Ihr Vorname <input class="right" type="text" name="vorname" id="vorname" size="30" maxlength="40"/>
 	</p>
 
 	<p>
-		Ihr Nachname <input class="right" type="text" name="nachname" size="30"
+		Ihr Nachname <input class="right" type="text" name="nachname" id="nachname" size="30"
 			maxlength="40" />
 	</p>
 	    
     <p>
     Mein Favorit 
-    <input style="right:190px; position:absolute" type="checkbox" name="buchfavorit"/>
+    <input style="right:190px; position:absolute" type="checkbox" name="buchfavorit" id="buchfavorit"/>
     </p>
 
     </div>
@@ -33,32 +35,32 @@
     <div class="dataLeft">
 	<p>
 		Buchtitel <input class="left" type="text" name="titel" size="30"
-			maxlength="40" />
+			maxlength="40" id="titel"/>
 	</p>
 
 	<p>
-		Buchautor <input class="left" type="text" name="autor" size="30" maxlength="40" />
+		Buchautor <input class="left" type="text" name="autor" id="autor" size="30" maxlength="40" />
 	</p>
 
 	<p>
-		ISBN <input class="left" type="number" name="isbn" min="0" maxlength="10" />
+		ISBN <input class="left" type="tel" name="isbn" id="isbn" min="0" />
 	</p>
 	
 	 <p>
-        Kapitel <input class="left" type="number" name="kapitel" min="0"/>
+        Kapitel <input class="left" type="number" name="kapitel" id="kapitel" min="0"/>
     </p>
     
      <p>
-        Erscheinungsjahr <input class="left" type="number" name="jahr" min="0"/>
+        Erscheinungsjahr <input class="left" type="number" name="jahr" id="jahr" min="0"/>
     </p>
     
      <p>
-        Auflage <input class="left" type="number" name="auflage" min="0"/>
+        Auflage <input class="left" type="number" name="auflage"  id="auflage" min="0"/>
     </p>
 
 	
 	<p>
-		Art des Buches <select class="left" name="art" size="1">
+		Art des Buches <select class="left" name="art" id="art" size="1">
 			<option value="ebook"> eBook</option>
 			<option value="newspaper"> Newspaper</option>
 			<option value="taschenbuch"> Taschenbuch</option>
@@ -70,7 +72,7 @@
 
    <p>
      Genre      
-     <a class= "left" style="font-size: 14px; color: black">
+     <a class= "left" style="font-size: 14px; color: black" id="genre">
      <input type="checkbox" checked="checked" name="genre"/> Horror <br>
      <input type="checkbox" name="genre" /> Psycho <br>
      <input type="checkbox" name="genre"/> Krimi
@@ -87,7 +89,7 @@
  
     <div style=" position: absolute; left: 35%; top: 80%"> 
         <input id="button" 
-         type="submit" name="absenden" value="Absenden"/>
+         type="submit" name="absenden" id="absenden" value="Absenden" onclick="return formChecker(this.form, this.form.vorname, this.form.nachname);"/>
     </div>
 
     </form>
