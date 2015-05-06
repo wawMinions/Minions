@@ -5,6 +5,8 @@
 <title>Meine Bücher</title>
 ￼<link rel="stylesheet" type="text/css" href="book.css"/>
 <script type="text/javascript" src="book.js"> </script>
+<script type="text/javascript" src="script/roman_books.json"> </script>
+<script type="text/javascript" src="script/horror_books.json"> </script>
 ￼
 </head>
 
@@ -12,24 +14,16 @@
 <h1>Meine Bücher</h1>
 
 
-<input type="submit" value="Horror" id="horror"/>
-<input type="submit" value="Roman"  id="roman"/>
+<div id="horrorLoad">
+<script type="text/javascript">loadData(horrorData);</script>
+</div>
+<div id="romanLoad">
+<script type="text/javascript">loadData(romanData);</script>
+</div>
 
 
-
-
-<table>
-<tr>
-<th>Autor</th>
-<th>Titel</th>
-<th>Kapitel</th>
-<th>Art des Buches</th>
-<th>ISBN</th>
-<th>Erscheinungsjahr</th>
- <th>Auflage</th>
-</tr>
-
-</table>
+<input type="submit" value="Horror" id="horror" onclick="tabSwitch(1);"/>
+<input type="submit" value="Roman"  id="roman" onclick="tabSwitch(2);"/>
 
 
 
