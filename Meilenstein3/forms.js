@@ -4,7 +4,8 @@ function formChecker(form, vorname, nachname, titel, autor, isbn, jahr, auflage)
  * auf den Initialzustand zurueck gesetzt.
  */
 
-	var fehler = false;
+	var error = false;
+	var counter = 1;
 	
 	document.getElementById(vorname.id).style.borderColor = "";
 	document.getElementById(nachname.id).style.borderColor = "";
@@ -14,39 +15,46 @@ function formChecker(form, vorname, nachname, titel, autor, isbn, jahr, auflage)
 	document.getElementById(auflage.id).style.borderColor="";
 	
 
-	regex = /^[\sa-zA-ZßäöüÄÖÜ]+$/; //Ueberpueft den angegebenen Vornamen auf korrekte Syntax
-	if(!regex.test(vorname.value)) {
-		fehler = getMessage(fehler, vorname);
+	var syntaxRule = /^[\sa-zA-ZßäöüÄÖÜ]+$/; //Ueberpueft den angegebenen Vornamen auf korrekte Syntax
+	if(!syntaxRule.test(vorname.value)) {
+		counter = getMessage(vorname, counter);
 	}
 
-	if(!regex.test(nachname.value)) { //Ueberpueft den angegebenen Nachnamen auf korrekte Syntax
-		fehler = getMessage(fehler, nachname);
+	if(!syntaxRule.test(nachname.value)) { //Ueberpueft den angegebenen Nachnamen auf korrekte Syntax
+		counter = getMessage(nachname, counter);
 	}
 	
-	if(!regex.test(autor.value)) { //Ueberpueft den angegebenen Autor auf korrekte Syntax
-		fehler = getMessage(fehler, autor);
+	if(!syntaxRule.test(autor.value)) { //Ueberpueft den angegebenen Autor auf korrekte Syntax
+		counter = getMessage(autor, counter);
 	}
 	
 	if(titel.value == "") { //Ueberpueft den angegebenen Titel auf korrekte Syntax
-		fehler = getMessage(fehler, titel);
+		counter = getMessage(titel, counter);
 	}
 	
-	regex = /^[0-9]+$/;
-	if((!regex.test(isbn.value)) || (isbn.value.length != 13)) { //Ueberpueft die angegebene ISBN auf korrekte Syntax
-		fehler = getMessage(fehler, isbn);
+	syntaxRule = /^[0-9]+$/;
+	if((!syntaxRule.test(isbn.value)) || (isbn.value.length != 13)) { //Ueberpueft die angegebene ISBN auf korrekte Syntax
+		counter = getMessage(isbn, counter);
 	}
 	
 	DatumAktuell = new Date(); //holt sich das aktuelle Datum
 	JahrAktuell = DatumAktuell.getFullYear();  //speichert das Jahr in einer Variable
-	if((!regex.test(jahr.value)) || (jahr.value.length != 4) || jahr.value < 0 || jahr.value > JahrAktuell) { //Ueberprueft das angegebene Jahr auf korrekte Syntax
-		fehler = getMessage(fehler, jahr);
+	if((!syntaxRule.test(jahr.value)) || (jahr.value.length != 4) || jahr.value < 0 || jahr.value > JahrAktuell) { //Ueberprueft das angegebene Jahr auf korrekte Syntax
+		counter = getMessage(jahr, counter);
 	}
 	
-	if(!regex.test(auflage.value) || auflage.value < 0) { //Ueberprueft, ob die Auflage den Syntaxregeln entspricht
-		fehler = getMessage(fehler, auflage);
+	if(!syntaxRule.test(auflage.value) || auflage.value < 0) { //Ueberprueft, ob die Auflage den Syntaxregeln entspricht
+		counter = getMessage(auflage, counter);
 	}
 	
-	return !fehler;
+	if(counter == 1) {
+		error = false;
+	}
+	else {
+		error = true;
+	}
+	
+	return !error
 } 
 
 	
@@ -55,12 +63,12 @@ function formChecker(form, vorname, nachname, titel, autor, isbn, jahr, auflage)
  * Funktion um fehlerhafte Felder rot zu markieren und den Fokus auf das erste fehlerhafte
  * Feld zu setzen.
  */
-function getMessage(fehler, bezeichnung) {
-	if(fehler == false) {
+function getMessage(bezeichnung, zaehler) {
+	if(zaehler == 1) {
 	alert(unescape("Einige Eingaben sind fehlerhaft. Bitte %FCberpr%FCfen Sie ihre Eingaben"));
 	bezeichnung.focus();
-	fehler = true;
+	zaehler++;
 	}
 	document.getElementById(bezeichnung.id).style.borderColor = "red"; //markiert die Felder rot
-	return true;	
+	return zaehler;	
 }
