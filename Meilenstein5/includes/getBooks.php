@@ -1,14 +1,25 @@
 <?php
-// JSON Definition
+
+/*Content Type wird auf JSON gesetzt damit der Client weiß, dass es 
+ * sich um ein JSON File handelt.
+ */
 header('Content-Type: application/json');
-// json Request
+
+//Die Request Art wird in einer Variable gespeichert 
 $json=$_GET["json"];
-// Pfad zur JSON Objekt-Datei
+
+/*Der Pfad zur JSON Datei wird in einer Variablen gespeichert.
+ *Entweder wird die Horror oder die Roman JSON Datei gespeichert.
+ */
 $filename = 'script/'.$json.'_books.json';
-// Daten werden ausgewertet und JSON-Datei wird ausgegeben. Im Fehlerfalle Fehlermeldung.
+
+/*Überprüfung ob das gewünschte File existiert. Falls ja werden die Inhalte in einer
+ *JSON Datei gespeichert
+ */
 if (file_exists($filename)) {
 	$json_obj = file_get_contents($filename);
 	
+	//Übergabe die Datei an den Client (Response)
 	echo $json_obj;
 }
 
