@@ -10,7 +10,7 @@ $dbName = "myBooks";
 //Eine Verbindung zum SQL Server erstellen
 
 $con = new MySQLi ( $host, $user, $pwd, $dbName );
-$con->set_charset ( "UTF-8" );
+$con->set_charset ( "utf8" );
 
 /*Die Ressourcen der Dateneingabe für die Bücher werden angefordert,
  * dekodiert und in Variablen gespeichert
@@ -18,16 +18,16 @@ $con->set_charset ( "UTF-8" );
 
 if ($_SERVER ["REQUEST_METHOD"] == "GET") {
 	
-	$vorname = utf8_decode ( $_GET ['vorname'] );
-	$name = utf8_decode ( $_GET ['nachname'] );
-	$autor = utf8_decode ( $_GET ['autor'] );
-	$titel = utf8_decode ( $_GET ['titel'] );
-	$kapitel = utf8_decode ( $_GET ['kapitel'] );
-	$buchart = utf8_decode ( $_GET ['art'] );
-	$isbn = utf8_decode ( $_GET ['isbn'] );
-	$erscheinungsjahr = utf8_decode ( $_GET ['jahr'] );
-	$auflage = utf8_decode ( $_GET ['auflage'] );
-	$genre = utf8_decode ( $_GET ['genre'] );
+	$vorname = $_GET ['vorname'];
+	$name = $_GET ['nachname'];
+	$autor = $_GET ['autor'];
+	$titel = $_GET ['titel'];
+	$kapitel = $_GET ['kapitel'];
+	$buchart = $_GET ['art'];
+	$isbn = $_GET ['isbn'];
+	$erscheinungsjahr = $_GET ['jahr'];
+	$auflage = $_GET ['auflage'];
+	$genre = $_GET ['genre'];
 	
 	/*
 	 * Überprüft, ob die Checkbox Favorit gesetzt ist oder nicht und speichert
@@ -79,6 +79,8 @@ if ($_SERVER ["REQUEST_METHOD"] == "GET") {
 	if ($error) {
 		exit("Fehler, die eingegebenen Werte sind nicht in Ordnung");
 	} 
+	
+	//$titel = utf8_decode($titel);
 
 	/*Abfrage, in der Datenbank, ob zu angegebenem Benutzernamen bereits eine user ID
 	 * vorhanden ist. Ist dies der Fall, wird die userID gespeichert.

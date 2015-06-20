@@ -18,7 +18,7 @@ $json= $_GET["json"];
 	
 	//Eine Verbindung zum SQL Server erstellen
 	$con = new MySQLi( $host, $user, $pwd, $dbName );
-	$con->set_charset ( "UTF-8" );
+	$con->set_charset ( "utf8" );
 	
 	/*
 	 * Auswertung, ob die Horror Bücher oder die Romane angezeigt werden sollen.
@@ -33,6 +33,7 @@ $json= $_GET["json"];
 	}
 
 	//Speicherung des Ergebnises der SQL Abfrage
+	
 	$ergebnis = mysqli_query($con, $abfrage);
 	
 	$output = array();
