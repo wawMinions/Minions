@@ -176,6 +176,8 @@ if ($_SERVER ["REQUEST_METHOD"] == "GET") {
 		}
 		
 }	
+	print '<br>Datensatz hinzugefügt<br/>';
+	print '<a href="javascript:history.back()">Zur&uuml;ck zu Buch anlegen</a>';
 	$con->close (); // Die Verbindung wird geschlossen
 	
 
