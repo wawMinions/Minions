@@ -80,7 +80,7 @@ if ($_SERVER ["REQUEST_METHOD"] == "GET") {
 		exit("Fehler, die eingegebenen Werte sind nicht in Ordnung");
 	} 
 	
-	//$titel = utf8_decode($titel);
+	
 
 	/*Abfrage, in der Datenbank, ob zu angegebenem Benutzernamen bereits eine user ID
 	 * vorhanden ist. Ist dies der Fall, wird die userID gespeichert.

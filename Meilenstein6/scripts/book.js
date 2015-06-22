@@ -33,13 +33,13 @@ function tabSwitch(genre) {
  */
 function loadData(jsonData) {
 
-	jsonHTMLFormat = "<table class='inventoryTable'>" +
+	jsonToHTML = "<table class='inventoryTable'>" +
 	"<tr><th>Autor</th><th>Titel</th><th>Kapitel</th>" +
 	"<th>Art des Buches</th><th>ISBN</th>" +
 	"<th>Erscheinungsjahr</th><th>Auflage</th></tr>";
 
 	for(i=0;i<jsonData.bookdata.length;i++) {
-		jsonHTMLFormat= jsonHTMLFormat + 
+		jsonToHTML= jsonToHTML + 
 		"<tr><td>"+ jsonData.bookdata[i].autor+"</td>" +
 		"<td>"+ jsonData.bookdata[i].titel+"</td>" +
 		"<td>"+ jsonData.bookdata[i].kapitel+"</td>" +
@@ -49,7 +49,7 @@ function loadData(jsonData) {
 		"<td>"+ jsonData.bookdata[i].auflage+"</td></tr>";
 
 	}
-	jsonHTMLFormat= jsonHTMLFormat + "</table>";
+	jsonToHTML= jsonToHTML + "</table>";
 
 }
 
@@ -76,7 +76,7 @@ function getJSON(book_genre) {
 			var jsonString = myRequest.responseText;  //Die Antwortnachricht wird in einem String gespeichert
 			var jsonData = JSON.parse(jsonString);	//String wird in eine Json Datei umgewandelt.
 			loadData(jsonData);						//JSON wird der Methode übergebenm, die eine Tabelle ausgibt
-			document.getElementById("inventoryTable").innerHTML=jsonHTMLFormat;
+			document.getElementById("inventoryTable").innerHTML=jsonToHTML;
 		}
 	}
 
